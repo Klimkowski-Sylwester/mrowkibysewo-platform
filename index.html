@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>PSB Mrówki Bysewo - Mrówka Chojnice, Mrówka Tuchola, Mrówka Expres Człuchów, PSB Mrówka Express Borkowo. Materiały budowlane, dom i ogród</title>
+    <meta charset="UTF-8" name="description" content="Lokalne centra budowlano-remontowe. Mrówka Chojnice, Mrówka Tuchola, Mrówka Expres Człuchów, PSB Mrówka Express Borkowo. Szeroki wybór materiałów, narzędzi, wyposażenia domu i ogrodu. Sprawdź nasze promocje!">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        .modal-overlay {
+            display: none; position: fixed; z-index: 1000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center; align-items: center; 
+        }
+        .modal-content {
+            background-color: white; padding: 25px; border-radius: 12px;
+            width: 90%; max-width: 500px; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .close-btn {
+            position: absolute; top: 10px; right: 15px; font-size: 28px;
+            font-weight: bold; color: #888; cursor: pointer;
+        }
+        .close-btn:hover { color: #d32f2f; }
+        .btn-check {
+            background-color: #1a73e8; color: white; border: none; padding: 12px 20px; 
+            border-radius: 8px; cursor: pointer; width: 100%; font-size: 1.1rem; 
+            margin-top: 15px; font-weight: bold; transition: background-color 0.3s;
+        }
+        .btn-check:hover { background-color: #1557b0; }
+
+        .contact-section {
+            background: linear-gradient(180deg, #062a73 0%, #03205a 100%);
+            color: #d4af37;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+            padding: 50px 60px 45px;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .contact-title-wrap {
+            border-top: 2px solid rgba(212, 175, 55, 0.8);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.8);
+            padding: 18px 0;
+            margin-bottom: 45px;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: clamp(34px, 5vw, 64px);
+            line-height: 1.05;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #d4af37;
+            letter-spacing: 2px;
+            -webkit-text-stroke: 4px #000;
+            text-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 rgba(0, 0, 0, 0.75), 6px 6px 10px rgba(0, 0, 0, 0.45);
+        }
+
+        .departments {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 45px;
+        }
+
+        .department {
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+        }
+
+        .department:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            right: -14px;
+            width: 2px;
+            height: calc(100% - 20px);
+            background: rgba(212, 175, 55, 0.7);
+        }
+
+        .department h3 {
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            color: #d4af37;
+            text-shadow: 1px 1px 1px #000;
+        }
+
+        .line-gold {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #d4af37, transparent);
+            margin: 8px 0 16px;
+        }
+
+        .department p {
+            font-size: 22px;
+            line-height: 1.55;
+            color: #d4af37;
+            text-shadow: 1px 1px 1px #000;
+        }
+
+        .department .tel {
+            margin-top: 18px;
+            font-size: 23px;
+            font-weight: 700;
+        }
+
+        .contact-bottom {
+            border-top: 2px solid rgba(212, 175, 55, 0.8);
+            padding-top: 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-person {
+            font-size: clamp(19px, 3vw, 28px);
+            font-weight: 700;
+            color: #d4af37;
+            text-shadow: 1px 1px 1px #000;
+            text-align: center;
+        }
+
+        .contact-person a { color: #d4af37; text-decoration: none; }
+        .contact-person a:hover { text-decoration: underline; }
+
+        .sociale {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #d4af37;
+            text-shadow: 1px 1px 1px #000;
+        }
+
+        .fb-icon {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: #d4af37; color: #03205a;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 30px; font-weight: 900; font-family: Arial, sans-serif;
+            flex-shrink: 0; box-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+        }
+
+        @media (max-width: 1100px) {
+            .departments { grid-template-columns: 1fr; }
+            .department:not(:last-child)::after { display: none; }
+            .department { border-bottom: 1px solid rgba(212, 175, 55, 0.5); padding-bottom: 25px; }
+            .department:last-child { border-bottom: none; }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-neutral-100 text-slate-900">
+
+    <header class="border-b border-slate-200 bg-white shadow-sm">
+        <div class="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 lg:px-8">
+            
+            <div class="flex flex-col items-center justify-center gap-6 md:flex-row md:gap-12 lg:gap-16 w-full pb-2">
+                <img src="obrazy/psb-mrowka-logo.png" alt="PSB Mrówka" 
+                     class="h-16 md:h-20 lg:h-22 w-auto object-contain transition-transform hover:scale-105" />
+                
+                <img src="obrazy/logo.png" alt="Bysewo" 
+                     class="h-16 md:h-20 lg:h-22 w-auto object-contain transition-transform hover:scale-105" />
+                
+                <img src="obrazy/DRUTEX.png" alt="Drutex" 
+                     class="h-[60px] md:h-[80px] lg:h-[120px] border border-white/40 w-auto object-contain transition-transform hover:scale-105" />
+            </div>
+
+            <div class="flex flex-col gap-3 rounded-2xl bg-blue-900 px-4 py-3 text-white lg:flex-row lg:items-center lg:justify-between">
+                <nav class="flex flex-wrap items-center gap-2 md:gap-3">
+    
+                    <div class="relative group z-50">
+        <button class="rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold transition hover:bg-white/20">
+            Wszystkie Kategorie ▾
+        </button>
+        
+        <div class="absolute left-0 top-full mt-2 hidden w-64 flex-col rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-slate-100 group-hover:flex before:absolute before:-top-2 before:left-0 before:h-2 before:w-full">
+            
+            <div class="group/item relative rounded-xl transition hover:bg-slate-50">
+                <button onclick="filterCategories(event, 'Budowlanka')" class="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-bold text-slate-700">
+                    Budowlanka <span class="text-slate-400">▶</span>
+                </button>
+                <div class="absolute left-full top-0 ml-1 hidden w-56 flex-col rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-slate-100 group-hover/item:flex before:absolute before:-left-2 before:top-0 before:h-full before:w-2">
+                    <a href="#" onclick="filterCategories(event, 'Budowlanka', 'Chemia budowlana')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Chemia budowlana</a>
+                    <a href="#" onclick="filterCategories(event, 'Budowlanka', 'Termoizolacja')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Termoizolacja</a>
+                    <a href="#" onclick="filterCategories(event, 'Budowlanka', 'Stolarka okienna')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Stolarka okienna</a>
+                    <a href="#" onclick="filterCategories(event, 'Budowlanka', 'Bramy garażowe i akcesoria')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Bramy garażowe i akcesoria</a>
+                    <a href="#" onclick="filterCategories(event, 'Budowlanka', 'Gazobeton')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Gazobeton</a>
+                    <a href="#" onclick="filterCategories(event, 'Budowlanka', 'Drzwi')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Drzwi</a>
+                    <a href="#" onclick="filterCategories(event, 'Budowlanka', 'Rynny')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Rynny</a>     
+                </div>      
+            </div>
+            <div class="group/item relative rounded-xl transition hover:bg-slate-50">
+                <button onclick="filterCategories(event, 'Ogród')" class="flex w-full item-center justify-between px-4 py-3 text-left text-sm font-bold text-slate-700">
+                    Ogród <span class="text-slate-400">▶</span>
+                </button>
+                <div class="absolute left-full top-0 ml-1 hidden w-56 flex-col rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-slate-100 group-hover/item:flex before:absolute before:-left-2 before:top-0 before:h-full before:w-2">
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Dekoracje ogrodowe')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Dekoracje ogrodowe</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Drewno w ogrodzie')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Drewno w ogrodzie</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Maszyny ogrodowe')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Maszyny ogrodowe</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Narzędzia ręczne')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Narzędzia ręczne</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Nawodnienie ogrodu')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Nawodnienie ogrodu</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Nasiona i cebulki')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Nasiona i cebulki</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Rośliny')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Rośliny</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Donice')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Donice</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Nawozy')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Nawozy</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Meble ogrodowe')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Meble ogrodowe</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Grille i akcesoria')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Grille i akcesoria</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Kamienie i palisady')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Kamienie i palisady</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Ogrodzenia')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Ogrodzenia</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Oświetlenie ogrodu')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Oświetlenie ogrodu</a>
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Inne')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Inne</a>
+                </div>
+            </div>
+            <div class="group/item relative rounded-xl transition hover:bg-slate-50">
+                <button onclick="filterCategories(event, 'Hobby')" class="flex w-full item-center justify-between px-4 py-3 text-left text-sm font-bold text-slate-700">
+                    Hobby <span class="text-slate-400">▶</span>
+                </button>
+                <div class="absolute left-full top-0 ml-1 hidden w-56 flex-col rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-slate-100 group-hover/item:flex before:absolute before:-left-2 before:top-0 before:h-full before:w-2">
+                    <a href="#" onclick="filterCategories(event, 'Hobby', 'Zwierzęta')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Zwierzęta</a>
+                    <a href="#" onclick="filterCategories(event, 'Hobby', 'Wędkarstwo')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Wędkarstwo</a>
+                    <a href="#" onclick="filterCategories(event, 'Hobby', 'Winiarstwo')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Winiarstwo</a>
+                    <a href="#" onclick="filterCategories(event, 'Hobby', 'Przetwórstwo')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Przetwórstwo</a>
+                    <a href="#" onclick="filterCategories(event, 'Hobby', 'Strzelectwo')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Strzelectwo</a>
+                    <a href="#" onclick="filterCategories(event, 'Hobby', 'Akcesoria rowerowe')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Akcesoria rowerowe</a>
+                    <a href="#" onclick="filterCategories(event, 'Hobby', 'Akcesoria samochodowe')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Akcesoria samochodowe</a>
+                </div>
+            </div>
+            <div class="group/item relative rounded-xl transition hover:bg-slate-50">
+                <button onclick="filterCategories(event, 'Instalacje')" class="flex w-full item-center justify-between px-4 py-3 text-left text-sm font-bold text-slate-700">
+                    Instalacje <span class="text-slate-400">▶</span>
+                </button>
+                <div class="absolute left-full top-0 ml-1 hidden w-56 flex-col rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-slate-100 group-hover/item:flex before:absolute before:-left-2 before:top-0 before:h-full before:w-2">
+                    <a href="#" onclick="filterCategories(event, 'Instalacje', 'Wodno-kanalizacyjne')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Wodno-kanalizacyjne</a>
+                    <a href="#" onclick="filterCategories(event, 'Instalacje', 'Elektryka')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Elektryka</a>
+                    <a href="#" onclick="filterCategories(event, 'Instalacje', 'Ogrzewanie')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Ogrzewanie</a>
+                    <a href="#" onclick="filterCategories(event, 'Instalacje', 'Wentylacja')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Wentylacja</a>
+                    <a href="#" onclick="filterCategories(event, 'Instalacje', 'Inne')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Inne</a>
+                </div>
+            </div>
+           <div class="group/item relative rounded-xl transition hover:bg-slate-50">
+                <button onclick="filterCategories(event, 'Wykończenie')" class="flex w-full item-center justify-between px-4 py-3 text-left text-sm font-bold text-slate-700">
+                    Wykończenie <span class="text-slate-400">▶</span>
+                </button>
+                <div class="absolute left-full top-0 ml-1 hidden w-56 flex-col rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-slate-100 group-hover/item:flex before:absolute before:-left-2 before:top-0 before:h-full before:w-2">
+                    <a href="#" onclick="filterCategories(event, 'Wykończenie', 'Płytki ceramiczne')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Płytki ceramiczne</a>
+                    <a href="#" onclick="filterCategories(event, 'Wykończenie', 'Parapety')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Parapety</a>
+                    <a href="#" onclick="filterCategories(event, 'Wykończenie', 'Sucha zabudowa')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Sucha zabudowa</a>
+                    
+                    <div class="group/sub relative rounded-xl transition hover:bg-slate-50">
+                        <button class="flex w-full item-center justify-between px-4 py-2 text-left text-sm font-medium text-slate-600 hover:text-blue-700">
+                            Farby <span class="text-slate-400">▶</span>
+                        </button>
+                        <div class="absolute left-full top-0 ml-1 hidden w-56 flex-col rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-slate-100 group-hover/sub:flex before:absolute before:-left-2 before:top-0 before:h-full before:w-2">
+                            <a href="#" onclick="filterCategories(event, 'Wykończenie', 'Farby do ścian i sufitów')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Farby do ścian i sufitów</a>
+                            <a href="#" onclick="filterCategories(event, 'Wykończenie', 'Farby fasadowe')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Farby fasadowe</a>
+                            <a href="#" onclick="filterCategories(event, 'Wykończenie', 'Farby ogólnego stosowania')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Farby ogólnego stosowania</a>
+                            <a href="#" onclick="filterCategories(event, 'Wykończenie', 'Ochrona drewna')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Ochrona drewna</a>
+                            <a href="#" onclick="filterCategories(event, 'Wykończenie', 'Rozpuszczalniki i rozcieńczalniki')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Rozpuszczalniki i rozcieńczalniki</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#" onclick="filterCategories(event, 'Wykończenie', 'Akcesoria malarskie')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Akcesoria malarskie</a>
+                    <a href="#" onclick="filterCategories(event, 'Wykończenie', 'Wykończenie podłóg')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Wykończenie podłóg</a>
+                    <a href="#" onclick="filterCategories(event, 'Wykończenie', ' Wykończenie ścian')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Wykończenie ścian</a>
+                    <a href="#" onclick="filterCategories(event, 'Wykończenie', 'Drewno, płyty konstrukcyjne')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Drewno, płyty konstrukcyjne</a>
+                    <a href="#" onclick="filterCategories(event, 'Wykończenie', 'Pozostałe')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Pozostałe</a>
+                </div>
+            </div>
+            <div class="group/item relative rounded-xl transition hover:bg-slate-50">
+                <button onclick="filterCategories(event, 'Wyposażenie')" class="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-bold text-slate-700">
+                    Wyposażenie <span class="text-slate-400">▶</span>
+                </button>
+                <div class="absolute left-full top-0 ml-1 hidden w-56 flex-col rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-slate-100 group-hover/item:flex before:absolute before:-left-2 before:top-0 before:h-full before:w-2">
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Wyposażenie łazienki')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Wyposażenie łazienki</a>
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Wyposażenie kuchni')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Wyposażenie kuchni</a>
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Akcesoria do mebli')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Akcesoria do mebli</a>
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Technika zabezpieczeń')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Technika zabezpieczeń</a>
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Półk, regały')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Półki, regały</a>
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Elektryka i oświetlenie')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Elektryka i oświetlenie</a>
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Dekoracje wnętrz')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Dekoracje wnętrz</a>
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Dekoracja okienna')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Dekoracja okienna</a>
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Artykuły drogeryjne')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Artykuły drogeryjne</a>
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Chemia gospodarcza')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Chemia gospodarcza</a>
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Sprzątanie')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Sprzątanie</a>
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Deski do prasowania, suszarki')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Deski do prasowania, suszarki</a>
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Małe AGD')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Małe AGD</a>
+                    <a href="#" onclick="filterCategories(event, 'Wyposażenie', 'Inne')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Inne</a>
+                </div>
+            </div>
+            <div class="group/item relative rounded-xl transition hover:bg-slate-50">
+                <button onclick="filterCategories(event, 'Narzędzia')" class="flex w-full item-center justify-between px-4 py-3 text-left text-sm font-bold text-slate-700">
+                    Narzędzia <span class="text-slate-400">▶</span>
+                </button>
+                <div class="absolute left-full top-0 ml-1 hidden w-56 flex-col rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-slate-100 group-hover/item:flex before:absolute before:-left-2 before:top-0 before:h-full before:w-2">
+                    <a href="#" onclick="filterCategories(event, 'Narzędzia', 'Elektronarzędzia')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Elektronarzędzia</a>
+                    <a href="#" onclick="filterCategories(event, 'Narzędzia', 'Narzędzia ręczne i warsztatowe')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Narzędzia ręczne i warsztatowe</a>
+                    <a href="#" onclick="filterCategories(event, 'Narzędzia', 'Narzędzia budowlane')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Nazędzia budowlane</a>
+                    <a href="#" onclick="filterCategories(event, 'Narzędzia', 'Technika mocowań')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Technika mocowań</a>
+                    <a href="#" onclick="filterCategories(event, 'Narzędzia', 'Artykuły metalowe')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Artykuły metalowe</a>
+                    <a href="#" onclick="filterCategories(event, 'Narzędzia', 'Artykuły BHP')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Artykuły BHP</a>
+                </div>
+            </div>
+             <div class="group/item relative rounded-xl transition hover:bg-slate-50">
+                <button onclick="filterCategories(event, 'Artykuły sezonowe')" class="flex w-full item-center justify-between px-4 py-3 text-left text-sm font-bold text-slate-700">
+                    Arykuły sezonowe <span class="text-slate-400">▶</span>
+                </button>
+                <div class="absolute left-full top-0 ml-1 hidden w-56 flex-col rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-slate-100 group-hover/item:flex before:absolute before:-left-2 before:top-0 before:h-full before:w-2">
+                    <a href="#" onclick="filterCategories(event, 'Artykuły sezonowe', 'Boże Narodzenie')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Boże Narodzenie</a>
+                    <a href="#" onclick="filterCategories(event, 'Artykuły sezonowe', 'Wielkanoc')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Wielkanoc</a>
+                    <a href="#" onclick="filterCategories(event, 'Artykuły sezonowe', 'Znicze, sztuczne kwiaty')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Znicze, sztuczne kwiaty</a>
+                    <a href="#" onclick="filterCategories(event, 'Artykuły sezonowe', 'Fajerwerki')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Fajerwerki</a>
+                    <a href="#" onclick="filterCategories(event, 'Artykuły sezonowe', 'Artykuły szkolne')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Artykuły szkolne</a>
+                    <a href="#" onclick="filterCategories(event, 'Artykuły sezonowe', 'Pozostałe')" class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-700">Pozostałe</a>
+                </div>
+             </div>
+
+        </div>
+    </div> 
+
+    <a href="https://mrowka.com.pl/promocja/psb-mrowka-chojnice/gazetka-promocyjna-od-23-04-2026-do-02-05-2026-49.html" target="_blank" class="rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold transition hover:bg-white/20 text-white no-underline inline-block">Gazetka</a>
+    <button onclick="openServicesModal()" class="rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold transition hover:bg-white/20">Usługi</button>
+    <button onclick="openAboutModal()" class="rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold transition hover:bg-white/20">O nas</button>
+    <a href="#contact" class="rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold transition hover:bg-white/20 text-white no-underline inline-block">Kontakt</a>
+
+</nav>
+                    <div class="relative flex items-center gap-3 rounded-xl bg-white px-4 py-2 text-slate-500 shadow-sm lg:min-w-[280px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-5 w-5 flex-shrink-0">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.35-4.35m0 0A7.65 7.65 0 1 0 5.85 5.85a7.65 7.65 0 0 0 10.8 10.8Z" />
+                        </svg>
+    
+                        <input id="search-field" type="text" placeholder="Szukaj produktów, kategorii..." class="text-sm w-full outline-none bg-transparent pr-8" />
+    
+                        <button id="clear-button" class="absolute right-4 hidden text-slate-400 transition-colors hover:text-red-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-5 w-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-8 lg:px-8">
+        
+       <section class="rounded-[28px] bg-white p-6 shadow-lg md:p-8">
+            <div class="mb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                <div>
+                    
+                    <h2 class="mt-2 text-3xl font-extrabold text-slate-800">Poznajcie produkty marki STOFARB</h2>
+                </div>
+            </div>
+
+            <div class="relative w-full h-[300px] sm:h-[400px] md:h-[550px] rounded-2xl overflow-hidden group shadow-inner bg-slate-100">
+                <div id="slider-container" class="relative w-full h-full">
+                    
+                    <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100">
+                        <img src="obrazy/SILVENO.jpeg" alt="Slajd 1" class="h-full w-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 sm:p-8 pt-16 flex flex-col items-start gap-4">
+                            <button onclick="filterByName('Silveno')" class="rounded-xl border border-white/40 bg-black/60 backdrop-blur-sm px-6 py-3 text-sm sm:text-base font-bold text-white shadow-xl transition hover:bg-white/20 hover:scale-105">
+                                Zobacz ofertę Silveno
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none">
+                        <img src="obrazy/DREWNOSTYL.jpeg" alt="Slajd 2" class="h-full w-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 sm:p-8 pt-16 flex flex-col items-start gap-4">
+                            <button onclick="filterByName('drewnostyl')" class="rounded-xl border border-white/40 bg-black/60 backdrop-blur-sm px-6 py-3 text-sm sm:text-base font-bold text-white shadow-xl transition hover:bg-white/20 hover:scale-105">
+                                Zobacz ofertę Drewnostyl
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none">
+                        <img src="obrazy/BAUSOLID.jpeg" alt="Slajd 3" class="h-full w-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 sm:p-8 pt-16 flex flex-col items-start gap-4">
+                            <button onclick="filterByName('BAUSOLID')" class="rounded-xl border border-white/40 bg-black/60 backdrop-blur-sm px-6 py-3 text-sm sm:text-base font-bold text-white shadow-xl transition hover:bg-white/20 hover:scale-105">
+                                Zobacz ofertę Bausolid
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none">
+                        <img src="obrazy/GOLDMURIT.jpeg" alt="Slajd 4" class="h-full w-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 sm:p-8 pt-16 flex flex-col items-start gap-4">
+                            <button onclick="filterByName('GOLDMURIT')" class="rounded-xl border border-white/40 bg-black/60 backdrop-blur-sm px-6 py-3 text-sm sm:text-base font-bold text-white shadow-xl transition hover:bg-white/20 hover:scale-105">
+                                Zobacz ofertę Goldmurit
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/70 text-slate-900 rounded-full w-12 h-12 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all backdrop-blur-sm shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                </button>
+                <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/70 text-slate-900 rounded-full w-12 h-12 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all backdrop-blur-sm shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                </button>
+
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                    <button onclick="goToSlide(0)" class="dot w-3 h-3 rounded-full bg-white transition-colors shadow-md"></button>
+                    <button onclick="goToSlide(1)" class="dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/80 transition-colors shadow-md"></button>
+                    <button onclick="goToSlide(2)" class="dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/80 transition-colors shadow-md"></button>
+                    <button onclick="goToSlide(3)" class="dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/80 transition-colors shadow-md"></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="mx-auto max-w-7xl px-4 py-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:min-h-[650px]">
+                
+                <div class="relative w-full h-full min-h-[1200px] rounded-[28px] overflow-hidden shadow-lg flex flex-col justify-end bg-blue-950">
+    
+                    <img src="obrazy/OKNA.png" alt="Okna na zamówienie" class="absolute inset-0 h-full w-full object-cover object-top lg:object-contain lg:object-center">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent"></div>
+    
+                    <div class="relative flex flex-wrap justify-center gap-4 p-8 z-10">
+                        <a href="https://salonyokien.pl" target="_blank" class="rounded-2xl bg-red-600 px-8 py-4 font-bold text-white shadow-xl transition hover:scale-105 hover:bg-red-700 inline-block text-center no-underline">Sprawdź ofertę</a>
+                        <button onclick="openPricingModal()" class="rounded-2xl border-2 border-white bg-white/20 backdrop-blur-md px-8 py-4 font-bold text-white shadow-xl transition hover:scale-105 hover:bg-white hover:text-slate-900 inline-block text-center no-underline">Zamów wycenę</button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col justify-between gap-4 md:gap-6">
+                    
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Rośliny')" class="relative w-full rounded-[28px] overflow-hidden shadow-sm transition-transform hover:scale-[1.02]">
+                        <img src="obrazy/KWIATY.png" alt="Kwiaty" class="w-full h-full object-cover">
+                    </a>
+
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Grille i akcesoria')" class="relative w-full rounded-[28px] overflow-hidden shadow-sm transition-transform hover:scale-[1.02]">
+                        <img src="obrazy/GRILLE.png" alt="Grille" class="w-full h-full object-cover">
+                    </a>
+
+                    <a href="#" onclick="filterCategories(event, 'Ogród', 'Meble ogrodowe')" class="relative w-full rounded-[28px] overflow-hidden shadow-sm transition-transform hover:scale-[1.02]">
+                        <img src="obrazy/MEBLE OGRODOWE.png" alt="Meble Ogrodowe" class="w-full h-full object-cover">
+                    </a>
+
+                </div>
+                
+            </div>
+        </section>
+
+    
+
+
+        <section id="results-section" class="rounded-[28px] bg-white p-6 shadow-lg md:p-8 transition-all duration-500">
+            <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+                <h2 id="products-title" class="mt-2 text-2xl md:text-3xl font-extrabold">Hity Miesiąca</h2>
+                
+                <button id="close-results-button" onclick="refreshView()" class="hidden flex items-center gap-2 rounded-2xl bg-red-50 px-4 py-2 font-bold text-red-600 transition hover:bg-red-100 hover:scale-105">
+                    <span>Zamknij wyniki</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="h-5 w-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div id="hits-container" class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            </div>
+            
+            <div id="container-show-more" class="mt-10 flex justify-center hidden">
+                <button onclick="showMore()" class="rounded-2xl bg-slate-800 px-8 py-4 font-bold text-white shadow-lg transition hover:scale-105 hover:bg-blue-900">
+                    Pokaż więcej produktów ⬇️
+                </button>
+            </div>
+                
+            
+        </section>
+        <section class="rounded-[28px] bg-gradient-to-r from-red-700 via-red-600 to-orange-500 p-6 text-white shadow-lg md:p-8">
+    <div class="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+            <p class="text-sm font-bold uppercase tracking-[0.25em] text-white/80">Najlepsze okazje</p>
+            <h2 class="mt-2 text-3xl font-extrabold">Strefa Wyprzedaży</h2>
+            <p class="mt-2 max-w-2xl text-white/90">Końcówki serii, ekspozycje i produkty w obniżonych cenach. Idealne miejsce dla klientów szukających najlepszych okazji.</p>
+        </div>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        
+        <div onclick="filterSales('Ogród')" class="group relative overflow-hidden rounded-[24px] p-5 cursor-pointer shadow-lg transition hover:shadow-xl min-h-[200px]">
+            <img src="obrazy/WYPRZEDAZ POSEZONOWA.png" class="absolute inset-0 h-full w-f,ull object-cover transition duration-500 group-hover:scale-110" alt="Tło promocji">
+            <div class="absolute inset-0 bg-black/20 transition group-hover:bg-black/10"></div>
+            <div class="relative z-10 flex h-full flex-col justify-end">
+                <h3 class="text-xl font-bold text-white"></h3>
+                <p class="mt-2 text-sm font-semibold text-white/90"></p>
+            </div>
+        </div>
+        
+        <div onclick="filterSales('Farby do ścian i sufitów', 'Farby fasadowe', 'Farby ogólnego stosowania')" class="group relative overflow-hidden rounded-[24px] p-5 cursor-pointer shadow-lg transition hover:shadow-xl min-h-[200px]">
+            <img src="obrazy/WYPRZEDAZ KOLEKCJI FARB.png" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-110" alt="Tło promocji">
+            <div class="absolute inset-0 bg-black/20 transition group-hover:bg-black/10"></div>
+            <div class="relative z-10 flex h-full flex-col justify-end">
+                <h3 class="text-xl font-bold text-white"></h3>
+                <p class="mt-2 text-sm font-semibold text-white/90"></p>
+            </div>
+        </div>
+
+        <div onclick="filterSales('Dekoracja okienna', 'Dekoracje wnętrz')" class="group relative overflow-hidden rounded-[24px] p-5 cursor-pointer shadow-lg transition hover:shadow-xl min-h-[200px]">
+            <img src="obrazy/WYPRZEDAZ EUROFIRANY.png" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-110" alt="Tło promocji">
+            <div class="absolute inset-0 bg-black/20 transition group-hover:bg-black/10"></div>
+            <div class="relative z-10 flex h-full flex-col justify-end">
+                <h3 class="text-xl font-bold text-white"></h3>
+                <p class="mt-2 text-sm font-semibold text-white/90"></p>
+            </div>
+        </div> <div onclick="filterSales('Wyposażenie łazienki')" class="group relative overflow-hidden rounded-[24px] p-5 cursor-pointer shadow-lg transition hover:shadow-xl min-h-[200px]">
+            <img src="obrazy/ARMATURA.png" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-110" alt="Tło promocji">
+            <div class="absolute inset-0 bg-black/20 transition group-hover:bg-black/10"></div>
+            <div class="relative z-10 flex h-full flex-col justify-end">
+                <h3 class="text-xl font-bold text-white"></h3>
+                <p class="mt-2 text-sm font-semibold text-white/90"></p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+        
+
+        <section id="contact" class="contact-section mt-8">
+            <div class="contact-title-wrap">
+                <h2 class="contact-title">SKONTAKTUJ SIĘ Z NAMI</h2>
+            </div>
+
+            <div class="departments">
+                <div class="department">
+                    <h3>MRÓWKA CHOJNICE</h3>
+                    <div class="line-gold"></div>
+                    <p>Kasztanowa 4</p>
+                    <p>89-600 Chojnice</p>
+                    <div class="line-gold"></div>
+                    <p class="openhours"> Pn.-Pt. 8:00 - 20:00</p>
+                    <p class="openhours"> Sb. 8:00 - 17:00 </p>
+                    <p class="tel">Nr telefonu: 52 397 21 46</p>
+                </div>
+
+                <div class="department">
+                    <h3>MRÓWKA TUCHOLA</h3>
+                    <div class="line-gold"></div>
+                    <p>Warszawska 21</p>
+                    <p>89-500 Tuchola</p>
+                    <div class="line-gold"></div>
+                    <p class="openhours"> Pn.-Pt. 8:00 - 18:00</p>
+                    <p class="openhours"> Sb. 8:00 - 15:00 </p>
+                    <p class="tel">Nr telefonu: 52 500 00 02</p>
+                </div>
+
+                <div class="department">
+                    <h3>MRÓWKA EXPRES CZŁUCHÓW</h3>
+                    <div class="line-gold"></div>
+                    <p>Traugutta 11B</p>
+                    <p>77-300 Człuchów</p>
+                    <div class="line-gold"></div>
+                    <p class="openhours"> Pn.-Pt. 8:00 - 18:00</p>
+                    <p class="openhours"> Sb. 8:00 - 15:00 </p>
+                    <p class="tel">Nr telefonu: 59 333 00 07</p>
+                </div>
+            </div>
+
+
+            <div class="departments">
+                <div class="department">
+                    <h3>MRÓWKA</h3> 
+                    <h3>BORKOWO</h3>
+                    <div class="line-gold"></div>
+                    <p>Nasza 19</p>
+                    <p>80-180 Borkowo</p>
+                    <div class="line-gold"></div>
+                    <p class="openhours"> Pn.-Pt. 7:00 - 18:00</p>
+                    <p class="openhours"> Sb. 7:00 - 16:00 </p>
+                    <p class="tel">Nr telefonu: 783 296 299</p>
+                </div>
+
+                <div class="department">
+                    <h3>MRÓWKA</h3> 
+                    <h3>KOLBUDY</h3>
+                    <div class="line-gold"></div>
+                    <p> Nasz Nowy Sklep</p>
+                    <p>Już wkrótce!</p>
+                    
+                </div>
+            </div>
+
+            <div class="contact-bottom">
+                <div class="contact-person">
+                    <a href="mailto:sabina.klimkowska@bysewo.pl">sabina.klimkowska@bysewo.pl</a>
+                    <span class="hidden md:inline">&nbsp; | &nbsp;</span>
+                    <br class="md:hidden">
+                    <a href="tel:+48667492839">tel. 667 492 839</a>
+                </div>
+
+                <div class="sociale">
+                    <div class="social-item">
+                        <span class="fb-icon">f</span>
+                        <span>Mrówka Tuchola</span>
+                    </div>
+                    <div class="social-item">
+                        <span class="fb-icon">f</span>
+                        <span>Mrówka Chojnice</span>
+                    </div>
+                    <div class="social-item">
+                        <span class="fb-icon">f</span>
+                        <span>Mrówka Expres Człuchów</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="productModal" class="modal-overlay">
+        <div class="modal-content !max-w-3xl !max-h-[90vh] overflow-y-auto relative">
+            
+            <span class="close-btn !right-4 !top-4 text-slate-400 hover:text-red-500 z-20" onclick="closeModal()">&times;</span>
+            
+            <div class="flex flex-col md:flex-row gap-6 text-left">
+                
+                <div class="flex-1 min-w-[200px] text-center flex flex-col items-center justify-start mt-4">
+                    <img id="modalImage" src="" class="w-full max-w-[250px] rounded-xl shadow-sm border border-slate-100 object-contain">
+                    <div id="thumbnail" class="mt-3 flex justify-center gap-2"></div>
+                </div>
+
+                <div class="flex-[1.5] min-w-[200px] flex flex-col justify-start mt-4">
+                    <h2 id="modalTitle" class="mt-0 text-slate-800 text-2xl font-extrabold leading-tight"></h2>
+                    
+                    <p class="text-red-600 text-3xl font-black my-3">
+                        <span id="modalPrice"></span> zł <span class="text-lg font-normal text-slate-500">/ <span id="modalUnit"></span></span>
+                    </p>
+                    
+                    <p class="text-slate-500 text-sm mb-4">Kod EAN: <strong id="modalEAN" class="text-slate-700"></strong></p>
+                    
+                    <a id="modalPDF" href="#" target="_blank" class="hidden mb-4 text-blue-600 hover:text-blue-800 font-bold text-sm transition-colors">
+                        📄 Pobierz kartę techniczną
+                    </a>
+
+                    <div class="mt-2 w-full">
+                        <button class="btn-check bg-red-600 text-white font-bold px-6 py-4 rounded-xl transition hover:bg-red-700 w-full shadow-lg hover:shadow-xl hover:scale-[1.02]" onclick="checkAvailability()">
+                            Sprawdź dostępność w sklepach
+                        </button>
+                        <div id="availabilityResults" class="hidden bg-slate-50 p-5 rounded-xl border border-slate-200 mt-4 shadow-inner">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-200">
+                <h3 class="text-lg font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    Opis produktu
+                </h3>
+                <div id="modalDesc" class="leading-relaxed text-slate-600 text-justify prose prose-sm max-w-none"></div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div id="aboutModal" class="modal-overlay">
+        <div class="modal-content !max-w-7xl !p-8 relative text-left bg-white text-slate-900 flex flex-col gap-6">
+            
+            <span class="close-btn !right-4 !top-2 text-slate-400 hover:text-red-500" onclick="closeAboutModal()">&times;</span>
+            
+            <h2 class="text-4xl font-extrabold text-slate-900 text-center border-b border-slate-100 pb-4">O firmie Mrówka Bysewo</h2>
+            
+            
+                <div class="text-slate-600 leading-relaxed text-justify text-lg">
+                    <p>
+                        Bysewo to firma z wieloletnią tradycją, która od 1990 roku wspiera klientów w realizacji małych i dużych inwestycji. Działamy pod szyldem PSB Mrówka, oferując szeroki wybór materiałów budowlanych, produktów sezonowych i dekoracyjnych, a także sprzedaż okien i drzwi na indywidualne zamówienie wraz z montażem.
+                    </p>
+                    <p>
+                        Od początku stawiamy na to, co dla klientów najważniejsze: lokalność, rzetelne doradztwo, terminowość i wygodę zakupów. Obsługujemy zarówno klientów indywidualnych, jak i firmy oraz wykonawców, zapewniając profesjonalne wsparcie na każdym etapie zamówienia. Nasz zespół tworzą doświadczeni sprzedawcy i handlowcy, którzy potrafią dobrać najlepsze rozwiązania nawet do najbardziej wymagających potrzeb.
+                    </p>
+                    <p>
+                        Nasze sklepy PSB Mrówka znajdują się w Chojnicach, Tucholi, Borkowie i Człuchowie, a salony okien prowadzimy w Gdańsku, Chojnicach i Kołobrzegu. Dzięki dogodnym lokalizacjom, szerokiej dostępności towaru oraz sprawnej logistyce możemy zaoferować klientom szybki dowóz, fachową obsługę oraz wygodne składanie zamówień również telefonicznie i mailowo.
+                    </p>
+                    <p>
+                        W Bysewie wierzymy, że dobra firma to nie tylko oferta, ale przede wszystkim relacje. Dlatego chcemy być marką, która kojarzy się jednocześnie z profesjonalizmem i rodzinną atmosferą — miejscem, w którym klient czuje się dobrze, jest ważny i może liczyć na realne wsparcie. Nasze wartości to uczciwość, odpowiedzialność, zaangażowanie i bliskość wobec lokalnej społeczności.
+                    </p>
+                    <p>
+                        Zapraszamy do odwiedzenia naszych sklepów i salonów. Niezależnie od tego, czy planujesz remont, budowę, sezonowe zakupy do domu i ogrodu, czy szukasz sprawdzonych okien i drzwi — w Bysewie i PSB Mrówka znajdziesz atrakcyjne promocje, fachowe doradztwo i sprawdzone rozwiązania.
+                    </p>
+                </div>
+            
+
+            <div class="mt-6 border-t border-slate-100 pt-6">
+                <h3 class="text-2xl font-bold text-center mb-6 text-slate-800">Poznaj nasze sklepy</h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    
+                    <div class="h-48 bg-slate-200 rounded-2xl overflow-hidden shadow-inner relative group cursor-pointer">
+                        <img src="obrazy/mrowka_tuchola.png" alt="Store Tuchola" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute bottom-0 left-0 right-0 bg-blue-900/80 p-3 translate-y-full transition-transform duration-300 group-hover:translate-y-0 backdrop-blur-sm">
+                            <p class="text-white text-center text-sm font-bold tracking-wide">Sklep Tuchola</p>
+                        </div>
+                    </div>
+
+                    <div class="h-48 bg-slate-200 rounded-2xl overflow-hidden shadow-inner relative group cursor-pointer">
+                        <img src="obrazy/mrowka_chojnice.png" alt="Store Chojnice" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute bottom-0 left-0 right-0 bg-blue-900/80 p-3 translate-y-full transition-transform duration-300 group-hover:translate-y-0 backdrop-blur-sm">
+                            <p class="text-white text-center text-sm font-bold tracking-wide">Sklep Chojnice</p>
+                        </div>
+                    </div>
+
+                    <div class="h-48 bg-slate-200 rounded-2xl overflow-hidden shadow-inner relative group cursor-pointer">
+                        <img src="obrazy/mrowka_czluchow.png" alt="Store Człuchów" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute bottom-0 left-0 right-0 bg-blue-900/80 p-3 translate-y-full transition-transform duration-300 group-hover:translate-y-0 backdrop-blur-sm">
+                            <p class="text-white text-center text-sm font-bold tracking-wide">Sklep Człuchów</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div id="pricingModal" class="modal-overlay">
+        <div class="modal-content !max-w-xl !p-0 relative text-left bg-white text-slate-900 flex flex-col overflow-hidden shadow-2xl">
+            
+            <span class="close-btn !right-4 !top-4 text-slate-400 hover:text-red-500 z-20" onclick="closePricingModal()">&times;</span>
+            
+            <div class="bg-slate-50 p-8 border-b border-slate-100">
+                 <h2 class="text-2xl font-extrabold text-slate-800">Darmowa Wycena Okien</h2>
+                 <p class="text-slate-500 mt-2 text-sm">Zostaw nam wymiary lub opis projektu, a nasi doradcy z Mrówki przygotują dla Ciebie ofertę od producenta Drutex.</p>
+            </div>
+
+            <form action="https://formspree.io/f/mdaykwky" method="POST" class="p-8 flex flex-col gap-4">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <label class="flex flex-col text-sm font-bold text-slate-700">
+                        Imię i nazwisko *
+                        <input type="text" name="name" required class="mt-1 rounded-xl border border-slate-300 p-3 font-normal outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                    </label>
+                    <label class="flex flex-col text-sm font-bold text-slate-700">
+                        Telefon kontaktowy *
+                        <input type="tel" name="phone" required class="mt-1 rounded-xl border border-slate-300 p-3 font-normal outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                    </label>
+                </div>
+
+                <label class="flex flex-col text-sm font-bold text-slate-700">
+                    Adres e-mail *
+                    <input type="email" name="email" required class="mt-1 rounded-xl border border-slate-300 p-3 font-normal outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                </label>
+
+                <label class="flex flex-col text-sm font-bold text-slate-700">
+                    Przybliżone wymiary / Opis projektu *
+                    <textarea name="description" rows="4" required placeholder="Np. 3 okna 150x150, kolor złoty dąb..." class="mt-1 rounded-xl border border-slate-300 p-3 font-normal outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 resize-none"></textarea>
+                </label>
+
+                <button type="submit" class="mt-4 rounded-xl bg-blue-600 px-6 py-4 font-bold text-white shadow-md transition hover:bg-blue-700 hover:scale-[1.02]">
+                    Wyślij zapytanie o wycenę
+                </button>
+                <p class="text-xs text-center text-slate-400 mt-2">Twoje dane są u nas bezpieczne. Kontaktujemy się tylko w sprawie wyceny.</p>
+            </form>
+        </div>
+    </div>
+
+    <div id="servicesModal" class="modal-overlay">
+        <div class="modal-content !max-w-2xl !p-0 relative text-left bg-white text-slate-900 flex flex-col overflow-hidden shadow-2xl">
+            
+            <span class="close-btn !right-4 !top-4 text-white hover:text-red-200 z-20" onclick="closeServicesModal()">&times;</span>
+            
+            <div class="bg-gradient-to-r from-blue-900 to-blue-700 p-8 text-white relative">
+                 <h2 class="text-3xl font-extrabold relative z-10 tracking-wide">Nasze Usługi</h2>
+                 <p class="text-blue-100 mt-2 relative z-10 text-lg">Zobacz, jak możemy Ci pomóc podczas remontu i budowy.</p>
+            </div>
+
+            <div class="p-8 bg-slate-50">
+                <ul class="space-y-4 text-lg text-slate-700 font-medium">
+                    <li class="flex items-center gap-3">
+                        <span class="text-green-500 text-2xl font-bold">✓</span> Dostawa towaru tego samego dnia
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-green-500 text-2xl font-bold">✓</span> Transport towaru z rozładunkiem HDS
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-green-500 text-2xl font-bold">✓</span> Mieszalnik farb 
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-green-500 text-2xl font-bold">✓</span> Mieszalnik tynków 
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-green-500 text-2xl font-bold">✓</span> Usługi montażowe 
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-green-500 text-2xl font-bold">✓</span> Karta Dużej Rodziny
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-green-500 text-2xl font-bold">✓</span> Myjnia samochodowa w Chojnicach
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-green-500 text-2xl font-bold">✓</span> Zamówienia na telefon i mailowe 
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-green-500 text-2xl font-bold">✓</span> Dział inwestycji
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-6 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="text-slate-500 font-semibold text-sm">
+                    Masz pytania dotyczące usług?<br>
+                    <span class="text-slate-800 text-base">Skontaktuj się z nami bezpośrednio!</span>
+                </div>
+                <div class="flex flex-col text-right">
+                    <a href="mailto:sabina.klimkowska@bysewo.pl" class="text-blue-700 font-bold hover:underline">sabina.klimkowska@bysewo.pl</a>
+                    <a href="tel:+48667492839" class="text-slate-900 font-extrabold text-xl hover:text-blue-700 transition">tel. 667 492 839</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="mt-12 border-t border-slate-200 pt-6 pb-6 flex flex-col items-center justify-center gap-2">
+        <p class="text-sm text-slate-500">
+            Code & Architecture by <span class="font-bold text-slate-700">Sylwester Klimkowski</span>
+        </p>
+        
+        <div class="flex items-center gap-4 text-xs font-medium">
+            <a href="https://www.linkedin.com/in/sylwester-klimkowski-7991693bb/" target="_blank" class="text-blue-600 hover:text-blue-800 transition">
+                LinkedIn
+            </a>
+            <span class="text-slate-300">|</span>
+            <a href="https://github.com/Klimkowski-Sylwester" target="_blank" class="text-slate-600 hover:text-slate-900 transition">
+                GitHub
+            </a>
+        </div>
+
+        <p class="text-[10px] text-slate-400 mt-1 uppercase tracking-widest">
+            Powered by Tailwind CSS & Python AI
+        </p>
+    </footer>
+
+    <script>
+        function openModal(title, imageSrc, image2Src, encodedDescription, codeEAN, price, unit, pdfLink) {
+            document.getElementById('productModal').setAttribute('data-current-ean', codeEAN);
+            
+            document.querySelector('.btn-check').style.display = 'block';
+            document.getElementById('availabilityResults').style.display = 'none';
+            document.getElementById('availabilityResults').innerHTML = '';
+
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('modalEAN').innerText = codeEAN;
+            document.getElementById('modalDesc').innerHTML = decodeURIComponent(encodedDescription);
+            document.getElementById('modalPrice').innerText = price;
+            document.getElementById('modalUnit').innerText = unit;
+            
+            let pdfElement = document.getElementById('modalPDF');
+            if(pdfLink && pdfLink !== '#') {
+                pdfElement.href = pdfLink;
+                pdfElement.style.display = 'inline-block';
+            } else {
+                pdfElement.style.display = 'none';
+            }
+
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        function checkAvailability() {
+            document.querySelector('.btn-check').style.display = 'none';
+            const resultsDiv = document.getElementById('availabilityResults');
+            resultsDiv.innerHTML = "<p style='text-align:center;'>⏳ Łączenie z magazynem...</p>";
+            resultsDiv.style.display = 'block';
+
+            const ean = document.getElementById('productModal').getAttribute('data-current-ean');
+
+            const productCondition = inventoryLevels[ean];
+
+            setTimeout(function () {
+                if (productCondition) {
+                    let htmlScore = `
+                        <h4 style="margin: 0 0 10px 0; color: #333;">Dostępność w marketach Mrówka Bysewo:</h4>
+                        <div class="flex flex-col gap-3">
+                    `;
+
+                    const storeMap = {
+                        "Chojnice": productCondition.Chojnice,
+                        "Tuchola": productCondition.Tuchola,
+                        "Człuchów": productCondition.Człuchów,
+                        "Borkowo": productCondition. Borkowo
+                    };
+
+                    for (const [storeName, quantity] of Object.entries(storeMap)) {
+                        const isAvailable = quantity > 0;
+                
+                        const dotColor = isAvailable ? 'bg-green-500 shadow-green-200' : 'bg-red-500 shadow-red-200';
+                        const inscription = isAvailable ? `<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>` : '';
+                        const textColor = isAvailable ? 'text-green-700' : 'text-red-600';
+                        const displayedQuantity = quantity % 1 === 0 ? parseInt(quantity) : quantity;
+
+                        htmlScore += `
+                            <div class="flex justify-between items-center border-b border-slate-200 pb-2 last:border-0 last:pb-0">
+                                <span class="font-bold text-slate-600">${storeName}</span>
+                                <div class="flex items-center gap-2">
+                                    <span class="relative flex h-3 w-3">
+                                    ${isAvailable ? inscription : ''}
+                                    <span class="relative inline-flex rounded-full h-3 w-3 ${dotColor} shadow-md"></span>
+                                    </span>
+                                    <span class="text-sm font-extrabold ${textColor}">${isAvailable ? `Dostępne (${displayedQuantity})` : 'Brak na stanie'}</span>
+                                </div>
+                            </div>
+                        `;
+                    }
+
+                    htmlScore += `</div>`;
+                    resultsDiv.innerHTML = htmlScore;
+                } else {
+                    resultsDiv.innerHTML = "<p style='text-align:center;'>Brak danych o dostępności z systemu.</p>";
+                }
+            }, 1000);
+        }
+
+        function openAboutModal() {
+            document.getElementById('aboutModal').style.display = 'flex';
+        }
+
+        function closeAboutModal() {
+            document.getElementById('aboutModal').style.display = 'none';
+        }
+
+        let completeProductDatabase = [];
+        let inventoryLevels = {};
+        let currentResults = [];     
+        let shownLines = 0;     
+        const LIMIT_PER_PAGE = 24;
+
+
+        function renderProducts(productsToShow) {
+            currentResults = productsToShow;
+            shownLines = 0;
+            
+            const container = document.getElementById('hits-container');
+            container.innerHTML = '';
+
+            if (currentResults.length === 0) {
+                container.innerHTML = '<p class="col-span-full text-center text-slate-500 py-10">Niestety, nie znaleźliśmy takich produktów.</p>';
+                document.getElementById('container-show-more').classList.add('hidden');
+                return;
+            }
+
+            drawTiles();
+        }
+
+        function drawTiles() {
+            const container = document.getElementById('hits-container');
+            const buttonMore = document.getElementById('container-show-more');
+
+            const batchToDraw = currentResults.slice(shownLines, shownLines + LIMIT_PER_PAGE);
+
+            batchToDraw.forEach(produkt => {
+                const safeDescription = encodeURIComponent(produkt.opis_html || "");
+                const safeName = produkt.nazwa.replace(/'/g, "&apos;").replace(/"/g, "&quot;");
+
+                let htmlFotos = "";
+                if (produkt.zdjecie.includes('no_photo')) {
+                    htmlFotos = `
+                        <div class="flex h-full w-full flex-col items-center justify-center bg-slate-50 text-slate-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-2 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span class="text-xs font-semibold text-center px-2 leading-tight">Zdjęcie chwilowo<br>niedostępne</span>
+                        </div>
+                    `;
+                } else {
+                    const v = new Date().getTime();
+                    const fotoUrl = `${produkt.zdjecie}?v=${v}`;
+                    
+                    htmlFotos = `<img src="${fotoUrl}" class="h-full w-full object-contain transition-transform duration-300 hover:scale-110" onerror="this.src='obrazy/brak_zdjecia.png'">`;
+                }
+
+                const oldPriceHTML = (produkt.cena_stara && produkt.cena_stara !== "") 
+                    ? `<span class="text-sm font-normal text-slate-400 line-through mr-2">${produkt.cena_stara} zł</span>` 
+                    : '';
+
+                const safeUnit = produkt.jednostka ? produkt.jednostka : "szt.";
+
+                const card = `
+                <div onclick="openModal('${safeName}', '${produkt.zdjecie}', '', '${safeDescription}', '${produkt.ean}', '${produkt.cena}', '${safeUnit}', '#')" 
+                    class="rounded-[24px] border border-slate-200 bg-white p-5 shadow-sm transition hover:scale-105 hover:shadow-md cursor-pointer flex flex-col justify-between">
+                    <div>
+                        ${produkt.hit_miesiaca === "TAK" ? '<span class="inline-block rounded-full bg-yellow-100 px-3 py-1 text-xs font-bold text-yellow-700 mb-3">Polecane</span>' : ''}
+                        ${(produkt.cena_stara && produkt.cena_stara !== "") ? '<span class="inline-block rounded-full bg-red-100 px-3 py-1 text-xs font-bold text-red-700 mb-3 ml-1">Promocja</span>' : ''}
+                
+                        <div class="flex h-36 items-center justify-center rounded-2xl bg-white shadow-inner overflow-hidden mb-4 border border-slate-100 p-2">
+                            ${htmlFotos}
+                        </div>
+                        <h3 class="text-sm md:text-base font-bold text-slate-800 line-clamp-2">${produkt.nazwa}</h3>
+                    </div>
+                    <p class="mt-3 text-xl font-extrabold text-red-600">${oldPriceHTML}${produkt.cena} zł <span class="text-sm text-slate-500 font-normal">/ ${safeUnit}</span></p>
+                </div> 
+                `;
+                container.insertAdjacentHTML('beforeend', card);
+            });
+
+            shownLines += batchToDraw.length;
+
+            if (shownLines >= currentResults.length) {
+                buttonMore.classList.add('hidden');
+            } else {
+                buttonMore.classList.remove('hidden');
+            }
+        }
+        
+        function showMore() {
+            drawTiles();
+        }
+
+        async function loadDatabase() {
+            try {
+                const typedProducts = await fetch('produkty.json');
+                completeProductDatabase = await typedProducts.json();
+
+                try {
+                    const typedStorage = await fetch('magazyn.json');
+                    inventoryLevels = await typedStorage.json();
+                    console.log("📦 Magazyn wczytany pomyślnie!");
+                } catch (e) {
+                    console.log("Brak pliku magazyn.json (lub błąd odczytu).");
+                }
+
+                const hitsOfMonth = completeProductDatabase.filter(produkt => produkt.hit_miesiaca === "TAK");
+                if (hitsOfMonth.length > 0) {
+                    renderProducts(hitsOfMonth);
+                } else {
+                    renderProducts(completeProductDatabase.slice(0, 8));
+                }
+            } catch (error) {
+                console.error("Błąd ładowania danych:", error);
+                document.getElementById('hits-container').innerHTML = '<p class="text-red-500 text-center w-full">Błąd ładowania bazy danych. Sprawdź plik produkty.json</p>';
+            }
+        }
+        
+        const searchField = document.getElementById('search-field');
+        const resultsSection = document.getElementById('results-section');
+        const sectionTitle = document.getElementById('products-title');
+        const clearButton = document.getElementById('clear-button');
+
+        searchField.addEventListener('focus', function() {
+            resultsSection.classList.add('-order-1');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        searchField.addEventListener('blur', function() {
+            setTimeout(() => {
+                if (searchField.value.trim().length === 0) {
+                    resultsSection.classList.remove('-order-1');
+                }
+            }, 150);
+        });
+
+        searchField.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+
+            if (searchTerm.length > 0) {
+                clearButton.classList.remove('hidden');
+            } else {
+                clearButton.classList.add('hidden');
+            }
+
+            if (searchTerm.length === 0) {
+                sectionTitle.innerText = "Hity Miesiąca";
+                const hitsOfMonth = completeProductDatabase.filter(produkt => produkt.hit_miesiaca === "TAK");
+                renderProducts(hitsOfMonth.length > 0 ? hitsOfMonth : completeProductDatabase.slice(0, 8));
+            } else {
+                sectionTitle.innerText = `Wyniki wyszukiwania dla: "${searchTerm}"`;
+                
+                const results = completeProductDatabase.filter(produkt => {
+                    const nazwa = (produkt.nazwa || "").toLowerCase();
+                    const ean = String(produkt.ean || "").toLowerCase();
+                    return nazwa.includes(searchTerm) || ean.includes(searchTerm);
+                });
+                
+                renderProducts(results);
+            }
+        });
+
+        clearButton.addEventListener('click', function() {
+            searchField.value = ''; 
+            clearButton.classList.add('hidden'); 
+            searchField.focus(); 
+            searchField.dispatchEvent(new Event('input')); 
+        });
+
+        loadDatabase();
+
+        function filterCategories(event, mainCategory, subcategory = null) {
+            event.preventDefault(); 
+
+            let results = [];
+            let title = "";
+
+            if (subcategory) {
+                results = completeProductDatabase.filter(produkt => 
+                    produkt.kategoria_glowna === mainCategory && 
+                    produkt.podkategoria === subcategory
+                );
+                title = `Kategoria: ${mainCategory} ➔ ${subcategory}`;
+            } else {
+                results = completeProductDatabase.filter(produkt => 
+                    produkt.kategoria_glowna === mainCategory
+                );
+                title = `Kategoria: ${mainCategory}`;
+            }
+
+            document.getElementById('products-title').innerText = title;
+            renderProducts(results);
+
+            const resultsSection = document.getElementById('results-section');
+            resultsSection.classList.add('-order-1');
+            document.getElementById('close-results-button').classList.remove('hidden');
+            setTimeout(() => {
+                resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+        }
+
+        function filterSales(...targetCategories) {
+            
+            const results = completeProductDatabase.filter(produkt => 
+                produkt.strefa_wyprzedazy === "TAK" && 
+                (targetCategories.includes(produkt.podkategoria) || targetCategories.includes(produkt.kategoria_glowna))
+            );
+
+           
+            const titleText = targetCategories.join(', ');
+            document.getElementById('products-title').innerText = `🔥 Wyprzedaż: ${titleText}`;
+
+            renderProducts(results);
+
+            const resultsSection = document.getElementById('results-section');
+            resultsSection.classList.add('-order-1');
+            document.getElementById('close-results-button').classList.remove('hidden');
+            setTimeout(() => {
+                resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+        }
+
+        function openServicesModal() {
+            document.getElementById('servicesModal').style.display = 'flex';
+        }
+
+        function closeServicesModal() {
+            document.getElementById('servicesModal').style.display = 'none';
+        }
+
+        function refreshView() {
+            const resultsSection = document.getElementById('results-section');
+            resultsSection.classList.remove('-order-1');
+            
+            document.getElementById('search-field').value = '';
+            document.getElementById('clear-button').classList.add('hidden');
+            
+            document.getElementById('products-title').innerText = "Hity Miesiąca";
+            const hitsOfMonth = completeProductDatabase.filter(produkt => produkt.hit_miesiaca === "TAK");
+            renderProducts(hitsOfMonth.length > 0 ? hitsOfMonth : completeProductDatabase.slice(0, 8));
+            
+            document.getElementById('close-results-button').classList.add('hidden');
+        }
+
+        function openPricingModal() {
+            document.getElementById('pricingModal').style.display = 'flex';
+        }
+
+        function closePricingModal() {
+            document.getElementById('pricingModal').style.display = 'none';
+        }
+        let currentSlide = 0;
+        let sliderInterval;
+        
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+
+            if (index >= slides.length) currentSlide = 0;
+            if (index < 0) currentSlide = slides.length - 1;
+
+
+            slides.forEach((slide, i) => {
+                slide.classList.remove('opacity-100');
+                slide.classList.add('opacity-0', 'pointer-events-none');
+                dots[i].classList.remove('bg-white');
+                dots[i].classList.add('bg-white/40');
+            });
+
+
+            slides[currentSlide].classList.remove('opacity-0', 'pointer-events-none');
+            slides[currentSlide].classList.add('opacity-100');
+            dots[currentSlide].classList.remove('bg-white/40');
+            dots[currentSlide].classList.add('bg-white');
+        }
+
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+            resetTimer(); 
+        }
+
+
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+            resetTimer();
+        }
+
+
+        function resetTimer() {
+            clearInterval(sliderInterval);
+            sliderInterval = setInterval(() => {
+                changeSlide(1);
+            }, 4000);
+        }
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            resetTimer();
+        });
+        
+        function filterByName(searchTerm) {
+    const searchPhrase = searchTerm.toLowerCase();
+    
+
+    const results = completeProductDatabase.filter(product => {
+        const name = (product.nazwa || "").toLowerCase();
+        return name.includes(searchPhrase);
+    });
+
+    document.getElementById('products-title').innerText = `Produkty marki: ${searchTerm}`;
+    
+ 
+    renderProducts(results);
+
+  
+    const resultsSection = document.getElementById('results-section');
+    resultsSection.classList.add('-order-1');
+    document.getElementById('close-results-button').classList.remove('hidden');
+
+    
+    setTimeout(() => {
+        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+}
+    </script>
+</body>
+</html>
